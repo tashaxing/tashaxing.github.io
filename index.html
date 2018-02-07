@@ -1,1 +1,28 @@
-"my blog site" 
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  // config weixin share
+	wx.config({
+		debug: false,
+		appId: 'wxfb95e4025a5d4614',
+		timestamp: '1498633007',
+		nonceStr: 'tnZJBsdrUo88MFiB',
+		signature: 'cae67a0a883822e1087cba091321b14b73152210',
+		jsApiList: [
+			'onMenuShareTimeline',
+			'onMenuShareAppMessage'
+		  ]
+	});
+	wx.ready(function () {
+		var shareData = {
+			title: "踏莎行的github博客主页",	// title
+			desc: 'show something about quantos',	//	description
+			link: 'https://tashaxing.github.io',	//	分享的URL，必须和当前打开的网页的URL是一样的
+			imgUrl: 'https://raw.githubusercontent.com/quantOS-org/quantOSUserGuide/master/assets/quantos-qq.jpg'	//	缩略图地址
+		};
+		wx.onMenuShareAppMessage(shareData);
+		wx.onMenuShareTimeline(shareData);
+	});
+	wx.error(function (res) {
+	  alert(res.errMsg);//错误提示
+	});
+</script>
